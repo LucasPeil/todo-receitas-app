@@ -1,0 +1,9 @@
+.modal{
+    position: absolute;
+    background-color: rgba(0,0,0, 0.5);
+    height: 100vh;
+    width: 100vw;
+}
+.modalForm{
+    z-index: 3;
+}

@@ -4,27 +4,40 @@ import {IDesserts} from "../interfaces/Desserts"
 
 
 interface Props {
-    btnText: string
-    dessertList: IDesserts[]
-    setDessertList?: React.Dispatch<React.SetStateAction<IDesserts[]>>
+    btnText: string;
+    dessertList: IDesserts[] ;
+    desertToUpdate?: IDesserts | null;
+    setDessertList?: React.Dispatch<React.SetStateAction<IDesserts[]>>;
+    updateDessert?(id:number, name:string, difficulty:number): void;
 }
 
-const DesertForm = ({btnText, dessertList, setDessertList}:Props) => {
+const DesertForm = ({btnText, dessertList, setDessertList, updateDessert, desertToUpdate }:Props) => {
 
     const [id, setId] = useState<number>(0)
     const [name,setName] = useState<string>("")
-    const [difficulty,setDifficulty] = useState<number >(0)
+    const [difficulty,setDifficulty] = useState<number>(0)
+
+    useEffect(()=>{
+        if(desertToUpdate){
+            setId(desertToUpdate.id!)
+            setName(desertToUpdate.name)
+            setDifficulty(desertToUpdate.difficulty)
+        }
+    },[desertToUpdate])
 
     const addDessertHandler = (e:FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
+        if(btnText == "Adicionar"){
         const id:number = Math.floor(Math.random()*1000)
-        const newDessert: IDesserts = {id,name,difficulty}
+        const newDessert:IDesserts = {id,name,difficulty}
         setDessertList!([...dessertList, newDessert])
-
+        
+        }else if(updateDessert){
+            updateDessert(id,name,difficulty)
+        }
+        
         setName("")
         setDifficulty(0)
-        
-        console.log(dessertList)
     }
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) =>{
         if(e.target.name === "name"){
