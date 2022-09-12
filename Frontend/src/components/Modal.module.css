@@ -1,9 +1,10 @@
-.modal{
+.modal_background{
     position: absolute;
     background-color: rgba(0,0,0, 0.5);
-    height: 100vh;
+    height: 200em;
     width: 100vw;
+  }
+.index{
+    z-index: 1000;
 }
-.modalForm{
-    z-index: 3;
-}
+

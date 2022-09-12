@@ -1,5 +1,5 @@
 export interface IDesserts{
     id: number;
     name: string;
-    difficulty: number
+    difficulty: number | undefined
 }

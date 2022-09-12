@@ -7,11 +7,14 @@ import Header from './components/Header';
 import Modal from './components/Modal';
 import styles from "./App.module.css"
 import {IDesserts} from "./interfaces/Desserts"
+import imgForm from "./top-form.svg"
 
 function App() {
 
   const [dessertList, setDessertList] = useState<IDesserts[]>([])
   const [desertToUpdate, setDesertToUpdate] = useState<IDesserts | null>(null)
+  
+  let modal = document.querySelector("#modal")
   
   const handleDelete = (id:number)=>{
     setDessertList(dessertList.filter((dessert)=>(
@@ -21,8 +24,9 @@ function App() {
  
   const handleEdit = ( dessert: IDesserts)=>{ 
     setDesertToUpdate(dessert)
-    let modal = document.querySelector("#modal")
     modal?.classList.remove("hide")
+
+    
     // 3 - Efetivamente editar a lista (setDessertList)
   }
 
@@ -33,22 +37,22 @@ function App() {
     });
 
     setDessertList(updatedDessertList)
+    modal?.classList.add("hide")
+    
 
-    let modal = document.querySelector("#modal")
-    modal?.classList.remove("hide")
   }
  
   return (
-    <div className={styles.app}>
-      <Modal title="Edite Sua Lista" children ={<DessertForm btnText='Editar' dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert} />} />
+    <div className="app">
+      <Modal title="Edite Sua Lista"  children ={<DessertForm btnText='Editar' dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert} />} />
       <Header/>
-      <div>
-        <h2>Qual sobremesa você quer fazer hoje?</h2>
-        <DessertForm btnText = "Adicionar" dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert}/>
-      </div>
-      <div>
-        <h3>Sobremesas para fazer e adoçar a vida:</h3>
-      </div>
+      <div  className="app_form ">
+        <div id="" className="app_form_content ">
+          <h1 className="app_form_title">Ideia para sobremesa?</h1>
+         <DessertForm btnText = "Adicionar" dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert}/> 
+        </div>
+      
+      </div>      
         <DessertList dessertList={dessertList} setDessertList={setDessertList} 
         handleDelete={handleDelete} handleEdit={handleEdit} />
 

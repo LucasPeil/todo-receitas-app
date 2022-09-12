@@ -17,3 +17,115 @@ code {
 .hide{
   display: none !important;
 }
+
+
+.modal{ 
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin:  auto;
+  height: 30em;
+  
+}
+
+.app {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.app_form{
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  
+  
+ 
+}
+@media all and (min-width: 400px) {
+  .app_form_content{
+    width: 90%;
+    border-radius: 4em;
+  }
+}
+
+@media all and (min-width: 769px){
+  .app_form_content{
+    
+    width: 70%;
+    border-radius: 3em;
+  
+  }
+}
+@media all and (min-width: 1024px){
+  .app_form_content{
+
+    width: 75%;
+    border-radius: 2.5em;
+  }
+}
+.app_form_content{
+  text-align: center;
+  background-image: url("./top-form.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+
+}
+.form_content{
+  max-height: 60vh;
+
+  
+}
+
+.app_form_title{
+  margin-top:5rem;
+  margin-bottom:5rem;
+  font-size: 2rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+  text-align: center;
+  
+}
+
+footer{
+
+  margin-top: 6rem;
+}
+
+.btn{
+  background: transparent;
+  border:none;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  margin-right: 0.8rem;
+  cursor: pointer;
+
+  
+  
+}
+.btnDelete{
+  color: rgb(177, 49, 49);
+}
+.btnEdit{
+  color: rgb(51, 51, 51);
+}
+.btnDelete:hover{
+  transition: all 0.4s ease-in-out;
+  color: rgb(139, 29, 29);
+}
+.btnEdit:hover{
+  transition: all 0.4s ease-in-out;
+  color: rgb(3, 3, 3);
+}

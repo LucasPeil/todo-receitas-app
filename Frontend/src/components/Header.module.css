@@ -1,3 +1,17 @@
-.header{
-    margin-top: 10em;
+.header {
+    height: 7em;
+    margin-top:0;
+    margin-bottom:2rem; 
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 -15px 20px 5px black;
+    box-sizing: border-box;
+   
+}
+.logo{
+    
+    height: 80px;
+    width: 80px;
 }
