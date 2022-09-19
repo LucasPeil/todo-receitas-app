@@ -1,36 +1,7 @@
 .list{
    margin-top: 3rem;
 }
-.list_itens{
-   background-color: rgb(240, 240, 240);
-   border-radius: 2rem;
-   box-sizing: border-box;
-   padding: 1rem 1rem;
-   height: 12em;
-   margin-top: 3rem;
-   margin-left: 5.6rem;
-   /*justify-content: space-around;*/
-}
-@media all and (min-width: 400px){
-   .list_itens{
-      width: 85%;
-      margin-left: auto !important;
-      margin-right: auto;
-   }
-}
-@media all and (min-width: 769px){
-   .list_itens{
-      width: 75%;
-      margin-left: auto !important ;
-      margin-right: auto;
-   }
-}
-@media all and (min-width: 1024px){
-   .list_itens{
-      width: 13rem;
-      
-   }
-}
+
 
 .dessert_container{
    width: 70%;
@@ -39,16 +10,18 @@
    display: flex;
    justify-content: flex-start;
    flex-wrap: wrap;
-   border: 1px solid red;
+  
    
 }
 .list_item{
-   padding-top: 0rem;
+   
    font-size: 1.3rem;
    display: inline-block;
+ 
    
 }
 .buttons_container{
-   margin-top: 1rem;
+   display: inline-block;
+
    
 }

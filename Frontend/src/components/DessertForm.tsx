@@ -6,7 +6,7 @@ import styles from "./DessertForm.module.css"
 interface Props {
     btnText: string;
     dessertList: IDesserts[] ;
-    desertToUpdate?: IDesserts | null;
+    desertToUpdate: IDesserts | null;
     setDessertList?: React.Dispatch<React.SetStateAction<IDesserts[]>>;
     updateDessert?(id:number, name:string, difficulty:number |undefined): void;
 }
@@ -16,6 +16,7 @@ const DesertForm = ({btnText, dessertList, setDessertList, updateDessert, desert
     const [id, setId] = useState<number>(0)
     const [name,setName] = useState<string>("")
     const [difficulty,setDifficulty] = useState<number| undefined>()
+    const itemContainer = document.querySelectorAll(".list_itens")
 
     useEffect(()=>{
         if(desertToUpdate){
@@ -28,13 +29,15 @@ const DesertForm = ({btnText, dessertList, setDessertList, updateDessert, desert
     const addDessertHandler = (e:FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
         if(btnText == "Adicionar"){
-        const id:number = Math.floor(Math.random()*1000)
+        const id:number = Math.floor(Math.random()*100000)
         const newDessert:IDesserts = {id,name,difficulty}
         setDessertList!([...dessertList, newDessert])
-        
+     
+       
         }else if(updateDessert){
             updateDessert(id,name,difficulty)
         }
+        
         
         setName("")
         setDifficulty(0)

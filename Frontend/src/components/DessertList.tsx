@@ -18,13 +18,11 @@ const DessertList = ({dessertList, handleDelete, handleEdit}: Props) => {
   return (
     <div className={styles.list}>
     <h3>Sobremesas para fazer e adoçar a vida:</h3>
+    
     <div className={styles.dessert_container}>{dessertList.map((dessert)=>(
-      <div className={styles.list_itens} key={dessert.id}>
-        <p>Sobremesa:</p>
+      
+      <div  className="list_itens" key={dessert.id}>
         <p className={styles.list_item}>{dessert.name}</p>
-        <p>Dificuldade:</p>
-        <p className={styles.list_item}>{dessert.difficulty}</p>
-        
         <div className={styles.buttons_container}>
           <button className="btn btnDelete" onClick={() => handleDelete(dessert.id!) }><BsTrashFill/></button>
           <button className="btn btnEdit" onClick={() => handleEdit(dessert) }><AiFillEdit/></button>
