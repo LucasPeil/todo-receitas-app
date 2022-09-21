@@ -1,0 +1,27 @@
+.list{
+   margin-top: 3rem;
+}
+
+
+.dessert_container{
+   width: 70%;
+   margin-left: auto;
+   margin-right: auto;
+   display: flex;
+   justify-content: flex-start;
+   flex-wrap: wrap;
+  
+   
+}
+.list_item{
+   
+   font-size: 1.3rem;
+   display: inline-block;
+ 
+   
+}
+.buttons_container{
+   display: inline-block;
+
+   
+}

@@ -1,0 +1,44 @@
+
+span{
+color: white;
+}
+
+.app {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .app_form{
+    display: flex;
+
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+   
+  }
+  .app_form_content{
+    width: 35%;
+    text-align: center;
+    height: 60vh;
+    background-image: url("./top-form.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 2em;
+  }
+  
+  .app_form_title{
+    margin-top:5rem;
+    margin-bottom:5rem;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+    text-align: center;
+    
+  }
+
