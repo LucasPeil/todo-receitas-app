@@ -50,6 +50,8 @@ const DesertForm = ({btnText, dessertList, setDessertList, updateDessert, desert
         }
 
     }
+   
+
   return (
     <div>
         <form className="form_content" onSubmit={addDessertHandler}>
@@ -61,8 +63,11 @@ const DesertForm = ({btnText, dessertList, setDessertList, updateDessert, desert
                     <input type="number" name="difficulty"  className={styles.dessert_input} placeholder=" Dificuldade de 1 ( muito fácil) à 5 (muito difícil)" 
                  onChange={onChangeHandler} value={difficulty}/>
                 </div>
-                    <input className={styles.form_button} type="submit" value={btnText} />
+                    <input className="btn" type="submit" value={btnText} />
+                    
         </form>
+        
+            
     </div>
   )
 }

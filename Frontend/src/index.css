@@ -105,32 +105,24 @@ footer{
 }
 
 .btn{
-  background: transparent;
-  border:none;
-  padding: 0.6rem;
-  font-size: 1.1rem;
-  margin-right: 0.8rem;
+  background-image: linear-gradient(to right, #F1707C, #F03043);
+  color: white;
+  border: none;
+  width: 10em;
+  border-radius: 1em;
+  padding: 0.8em;
+  margin-bottom: 1.3em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
   cursor: pointer;
   
+  
+}
+.btn_idea {
+width:16em;
+margin-left: 1em
+}
 
-  
-  
-}
-.hard{
-  -webkit-box-shadow: 0 10px 6px -6px rgb(199, 51, 51);
-    -moz-box-shadow: 0 10px 6px -6px rgb(199, 51, 51);
-         box-shadow: 0 10px 6px -6px rgb(199, 51, 51);
-}
-.medium{
-        -webkit-box-shadow: 0 10px 6px -6px rgb(228, 143, 32);
-        -moz-box-shadow: 0 10px 6px -6px rgb(228, 143, 32);
-         box-shadow: 0 10px 6px -6px rgb(228, 143, 32);
-}
-.easy{
-        -webkit-box-shadow: 0 10px 6px -6px rgb(31, 128, 47);
-        -moz-box-shadow: 0 10px 6px -6px rgb(31, 128, 47);
-         box-shadow: 0 10px 6px -6px rgb(31, 128, 47);
-}
 .list_itens{
 
   box-shadow:  0 0 7px rgba(214, 64, 19, 0.8);

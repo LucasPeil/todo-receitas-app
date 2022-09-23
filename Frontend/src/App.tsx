@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DessertForm from './components/DessertForm';
 import DessertList from './components/DessertList'
 import Footer from './components/Footer';
@@ -7,17 +7,23 @@ import Header from './components/Header';
 import Modal from './components/Modal';
 import styles from "./App.module.css"
 import {IDesserts} from "./interfaces/Desserts"
-import imgForm from "./top-form.svg"
+import NewDesserts from './components/NewDesserts';
+import {useAppSelector, useAppDispatch} from "./TypedHooks"
+import {getAllDesserts} from "./Slice/dessertSlice"
+
 
 function App() {
 
   const [dessertList, setDessertList] = useState<IDesserts[]>([])
   const [desertToUpdate, setDesertToUpdate] = useState<IDesserts | null>(null)
+  const dispatch = useAppDispatch()
+  const {desserts,success,error,loading} = useAppSelector((state)=>state.dessert)
   
   let modal = document.querySelector("#modal")
+  let displayNewDesserts: boolean = false;
   
   const handleDelete = (id:number)=>{
-    setDessertList(dessertList.filter((dessert)=>(
+    setDessertList(dessertList.filter((dessert :IDesserts)=>(
       dessert.id != id
     )))
   }
@@ -39,8 +45,16 @@ function App() {
     setDessertList(updatedDessertList)
     modal?.classList.add("hide")
     
-
   }
+  useEffect(()=>{
+    dispatch(getAllDesserts())
+  }, [dispatch])
+  
+  const generateNewDesserts = ()=>{
+    
+    console.log(desserts)
+  }
+ 
  
   return (
     <div className="app">
@@ -51,11 +65,16 @@ function App() {
         <div id="" className="app_form_content ">
           <h1 className="app_form_title">Ideia para sobremesa?</h1>
          <DessertForm btnText = "Adicionar" dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert}/> 
+         <button onClick={()=> generateNewDesserts()} className="btn btn_idea ">Me dê uma ideia!</button> 
         </div>
+        
+      </div>
       
-      </div>      
+        
+        
         <DessertList dessertList={dessertList} setDessertList={setDessertList} 
         handleDelete={handleDelete} handleEdit={handleEdit} />
+       
 
       <Footer/>
     </div>
