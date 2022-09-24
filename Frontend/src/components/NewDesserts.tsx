@@ -1,10 +1,19 @@
 import React from 'react'
+import { IDesserts } from '../interfaces/Desserts'
 
-type Props = {}
+type Props = {
+  desserts: IDesserts[]
+}
 
-const NewDesserts = (props: Props) => {
+const NewDesserts = ({desserts}: Props) => {
   return (
-    <div>CARD DE NOVAS RECEITAS</div>
+    <div id="new_desserts" className="hide">
+      {desserts.map((dessert)=>(
+        <div key={dessert.id}>
+          <span>{dessert.name}</span>
+        </div>
+    ))
+      }</div>
   )
 }
 

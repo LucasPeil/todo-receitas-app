@@ -20,6 +20,7 @@ function App() {
   const {desserts,success,error,loading} = useAppSelector((state)=>state.dessert)
   
   let modal = document.querySelector("#modal")
+  let newDesserts = document.querySelector("#new_desserts")
   let displayNewDesserts: boolean = false;
   
   const handleDelete = (id:number)=>{
@@ -51,7 +52,7 @@ function App() {
   }, [dispatch])
   
   const generateNewDesserts = ()=>{
-    
+    newDesserts!.classList.remove("hide")
     console.log(desserts)
   }
  
@@ -67,6 +68,7 @@ function App() {
          <DessertForm btnText = "Adicionar" dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert}/> 
          <button onClick={()=> generateNewDesserts()} className="btn btn_idea ">Me dê uma ideia!</button> 
         </div>
+        <NewDesserts desserts = {desserts}/>
         
       </div>
       
