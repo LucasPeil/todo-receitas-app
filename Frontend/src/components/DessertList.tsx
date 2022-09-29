@@ -16,9 +16,8 @@ interface Props {
 const DessertList = ({dessertList, handleDelete, handleEdit}: Props) => {
 
   return (
-    <div className={styles.list}>
-    <h3>Sobremesas para fazer e adoçar a vida:</h3>
     
+    <div id="list_container" className="list hide">
     <div className={styles.dessert_container}>{dessertList.map((dessert)=>(
       
       <div  className="list_itens" key={dessert.id}>

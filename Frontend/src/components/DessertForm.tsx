@@ -9,14 +9,16 @@ interface Props {
     desertToUpdate: IDesserts | null;
     setDessertList?: React.Dispatch<React.SetStateAction<IDesserts[]>>;
     updateDessert?(id:number, name:string, difficulty:number |undefined): void;
+    
 }
 
-const DesertForm = ({btnText, dessertList, setDessertList, updateDessert, desertToUpdate }:Props) => {
+const DesertForm = ({btnText, dessertList, setDessertList, updateDessert, desertToUpdate,  }:Props) => {
 
     const [id, setId] = useState<number>(0)
     const [name,setName] = useState<string>("")
     const [difficulty,setDifficulty] = useState<number| undefined>()
-    const itemContainer = document.querySelectorAll(".list_itens")
+    
+    const listContainer = document.querySelector("#list_container")
 
     useEffect(()=>{
         if(desertToUpdate){
@@ -31,7 +33,9 @@ const DesertForm = ({btnText, dessertList, setDessertList, updateDessert, desert
         if(btnText == "Adicionar"){
         const id:number = Math.floor(Math.random()*100000)
         const newDessert:IDesserts = {id,name,difficulty}
+        listContainer?.classList.remove("hide")
         setDessertList!([...dessertList, newDessert])
+
      
        
         }else if(updateDessert){

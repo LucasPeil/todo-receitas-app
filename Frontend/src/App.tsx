@@ -10,6 +10,7 @@ import {IDesserts} from "./interfaces/Desserts"
 import NewDesserts from './components/NewDesserts';
 import {useAppSelector, useAppDispatch} from "./TypedHooks"
 import {getAllDesserts} from "./Slice/dessertSlice"
+import {FaRegLightbulb} from "react-icons/fa" 
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   const [desertToUpdate, setDesertToUpdate] = useState<IDesserts | null>(null)
   const dispatch = useAppDispatch()
   const {desserts,success,error,loading} = useAppSelector((state)=>state.dessert)
+  const listContainer = document.querySelector("#list_container")
   
   let modal = document.querySelector("#modal")
   let newDesserts = document.querySelector("#new_desserts")
@@ -27,6 +29,9 @@ function App() {
     setDessertList(dessertList.filter((dessert :IDesserts)=>(
       dessert.id != id
     )))
+    if(dessertList.length<=1){
+      listContainer?.classList.add("hide")
+    }
   }
  
   const handleEdit = ( dessert: IDesserts)=>{ 
@@ -53,29 +58,28 @@ function App() {
   
   const generateNewDesserts = ()=>{
     newDesserts!.classList.remove("hide")
-    console.log(desserts)
   }
- 
+  const handleClose = ()=>{
+    modal?.classList.add("hide")
+  }
  
   return (
     <div className="app">
       
-      <Modal title="Edite Sua Lista"  children ={<DessertForm btnText='Editar' dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert} />} />
+      <Modal title="Edite Sua Lista" handleClose={handleClose}  children ={<DessertForm btnText='Editar' dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert} />} />
       <Header/>
       <div  className="app_form ">
         <div id="" className="app_form_content ">
+        <button onClick={()=> generateNewDesserts()} className=" btn_idea "> <FaRegLightbulb/></button>
           <h1 className="app_form_title">Ideia para sobremesa?</h1>
-         <DessertForm btnText = "Adicionar" dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert}/> 
-         <button onClick={()=> generateNewDesserts()} className="btn btn_idea ">Me dê uma ideia!</button> 
+         <DessertForm btnText = "Adicionar" dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert} /> 
         </div>
-        <NewDesserts desserts = {desserts}/>
-        
-      </div>
-      
-        
-        
         <DessertList dessertList={dessertList} setDessertList={setDessertList} 
         handleDelete={handleDelete} handleEdit={handleEdit} />
+        
+      </div> 
+       
+       <NewDesserts desserts={desserts}/>
        
 
       <Footer/>

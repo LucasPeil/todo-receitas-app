@@ -2,10 +2,10 @@ import { createAsyncThunk, createSlice, SliceCaseReducers } from "@reduxjs/toolk
 import type { RootState } from '../store'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import getDessertsService from "../Service/dessertService";
-import {IDesserts} from "../interfaces/Desserts"
+import {INewDesserts} from "../interfaces/Desserts"
 
 interface IinitialState{
-    desserts: IDesserts[];
+    desserts: INewDesserts[];
     success: boolean;
     error: boolean;
     loading: boolean
@@ -18,7 +18,7 @@ const initialState: IinitialState = {
     loading:false
 }
 
-export const getAllDesserts = createAsyncThunk<IDesserts[]>( "dessert/getDesserts", async ()=>{
+export const getAllDesserts = createAsyncThunk<INewDesserts[]>( "dessert/getDesserts", async ()=>{
     const dessertsData = await getDessertsService()
 
     return dessertsData;
@@ -40,7 +40,7 @@ export const dessertSlice= createSlice({
         .addCase(getAllDesserts.pending, (state)=>{
             state.loading = true
         })
-        .addCase(getAllDesserts.fulfilled, (state,action: PayloadAction<IDesserts[]>)=>{
+        .addCase(getAllDesserts.fulfilled, (state,action: PayloadAction<INewDesserts[]>)=>{
             state.loading=false
             state.error=false
             state.success=true
