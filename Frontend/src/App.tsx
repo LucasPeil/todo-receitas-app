@@ -23,7 +23,7 @@ function App() {
   
   let modal = document.querySelector("#modal")
   let newDesserts = document.querySelector("#new_desserts")
-  let displayNewDesserts: boolean = false;
+  
   
   const handleDelete = (id:number)=>{
     setDessertList(dessertList.filter((dessert :IDesserts)=>(
@@ -42,8 +42,8 @@ function App() {
     // 3 - Efetivamente editar a lista (setDessertList)
   }
 
-  const updateDessert = (id:number, name:string, difficulty:number) =>{
-    const updatedDessert : IDesserts = {id,name,difficulty}
+  const updateDessert = (id:number, name:string) =>{
+    const updatedDessert : IDesserts = {id,name}
     const updatedDessertList = dessertList.map((dessert)=>{
     return dessert.id === updatedDessert.id ? updatedDessert : dessert;
     });
@@ -70,6 +70,7 @@ function App() {
       <Header/>
       <div  className="app_form ">
         <div id="" className="app_form_content ">
+          
         <button onClick={()=> generateNewDesserts()} className=" btn_idea "> <FaRegLightbulb/></button>
           <h1 className="app_form_title">Ideia para sobremesa?</h1>
          <DessertForm btnText = "Adicionar" dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert} /> 

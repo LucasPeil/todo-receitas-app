@@ -26,6 +26,7 @@ const NewDesserts = ({ desserts }: Props) => {
         spaceBetween={25}
         loop={true}
         loopFillGroupWithBlank={true}
+
         pagination={{
           clickable: true
         }}
@@ -49,7 +50,7 @@ const NewDesserts = ({ desserts }: Props) => {
                       {dessert.ingredients.map((ingredient) => (
                         <span className="description">- {ingredient}</span>
                       ))}
-                      <a href={dessert.howMakeIt} className="button">Como Fazer</a>
+                      <a href={dessert.howMakeIt} target="_blank" rel="noopener noreferrer" className="button">Como Fazer</a>
                     </div>
                   </div>
                 </SwiperSlide>
