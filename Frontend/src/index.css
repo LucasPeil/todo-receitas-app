@@ -17,11 +17,9 @@ code {
 .hide{
   display: none !important;
 }
-
-
 .modal{ 
   position: absolute;
-  z-index: 1;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   left: 0;
@@ -32,7 +30,6 @@ code {
   height: 30em;
   
 }
-
 .app {
   text-align: center;
   display: flex;
@@ -40,39 +37,6 @@ code {
   
 }
 
-.app_form{
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  
-  
- 
-}
-@media all and (min-width: 400px) {
-  .app_form_content{
-    width: 90%;
-    border-radius: 4em;
-    
-  }
-}
-
-@media all and (min-width: 769px){
-  .app_form_content{
-    
-    width: 70%;
-    border-radius: 3em;
-  
-  }
-}
-@media all and (min-width: 1024px){
-  .app_form_content{
-   
-   
-    width: 50%;
-    border-radius: 2.5em;
-  }
-}
 .app_form_content{
   display: flex;
   flex-direction: column;
@@ -80,14 +44,9 @@ code {
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
-
-
-
 }
 .form_content{
   max-height: 60vh;
- 
-  
 }
 
 .app_form_title{
@@ -103,7 +62,6 @@ code {
 }
 
 footer{
-
   margin-top: 6rem;
 }
 
@@ -159,25 +117,117 @@ footer{
   
   /*justify-content: space-around;*/
 }
+
 @media all and (min-width: 400px){
+  .app_form{
+    display: block;
+    align-items: center;
+    justify-content: center;
+  }
+  .app_form_content{
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    border-radius: 4em;
+  }
+
+  .list{
+    /* position: relative; */
+    display: block;
+    width: 100%;
+  
+  }
   .list_itens{
      width: 100%;
      margin-left: auto !important;
      margin-right: auto;
   }
+  .card{
+    width: 250px;
+  }
+
+  .swiper{
+    /*max-width: 400px;*/
+    width: 85%;
+  }
+  .button{margin-top:3em !important}
+
 }
+@media all and (min-width: 500px){
+  .swiper{
+    /*max-width: 400px;*/
+    width: 55%;
+  }
+  .button{margin-top:2.6em !important}
+
+}
+
 @media all and (min-width: 769px){
+  .app_form{
+    display: block;
+    align-items: center;
+    justify-content: center;
+  }
+  .app_form_content{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    border-radius: 3em;
+  }
+  .list{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .list_itens{
      width: 90%;
      margin-left: auto !important ;
      margin-right: auto;
   }
+
+  .card{
+    width: 400px;
+  }
+  
+
+  .swiper{
+    /*max-width: 400px;*/
+    width: 70%;
+  }
+
 }
+
 @media all and (min-width: 1024px){
+  .app_form{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .list{
+    width: 40%;
+  }
   .list_itens{
      width: 80%;
-     
   }
+
+  .card{
+    width: 500px;
+  }
+  .app_form_content{
+    width: 50%;
+    border-radius: 2.5em;
+  }
+
+  .swiper{
+    width: 75%;
+  }
+}
+
+.app_form{
+  box-sizing: border-box;
+  margin-bottom: 6rem;
 }
 
 .btnDelete{
@@ -199,33 +249,8 @@ footer{
   color: rgb(3, 3, 3);
 }
 
-
-.list{
-  position: relative;
-  width: 35%;
-  
-}
-
-/* NEW DESSERT CARD CAROUSEL  */
-
-
-/*.new_dessert_div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid red
-}
-
-.slide_container{
-  max-width: 600px;
-  width: 100%;
-  padding: 40px 0;
-  border: 1px solid brown
-}
-*/
-
 .card{
-  margin-top:4em;
+  
   border-radius: 25px;
   background-color: #FFF;
   border:1px solid grey;
@@ -245,18 +270,12 @@ footer{
   
 }
 .image_content,
-.card_content{
-  
-  
+.card_content{ 
   padding: 10px 14px;
-  /*border: 2px dashed black*/
-  
 }
 .card_content{
   height:300px;
- 
 }
-
 .overlay{
   position: absolute;
   left: 0;
@@ -267,9 +286,8 @@ footer{
   border-radius: 25px 25px 0 25px;
   
 }
-
 .name{
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   color: #333;
   margin-bottom: 0.8em;
@@ -301,8 +319,6 @@ footer{
    background-image: linear-gradient(to right, #F1707C, #F03043);
 }
 
-
-
 @media screen and (max-width: 768px) {
   .slide-content{
     margin: 0 10px;
@@ -313,14 +329,18 @@ footer{
 }
 
 
+.mySwiper .swiper-button-prev{
+  color: rgb(241, 83, 96,0.5)
 
-
+}
+.mySwiper .swiper-button-next{
+  color: rgb(241, 83, 96,0.5)
+}
+.mySwiper .swiper-pagination-bullet{
+  background-color: #ec2d40;
+}
 
 .swiper {
-  max-width: 800px;
-  width: 100%;
-  padding: 40px 0;
-  *border: 1px solid blue;
   display: flex;
   justify-content: center;
   align-items: center
@@ -330,8 +350,7 @@ footer{
   text-align: center;
   font-size: 18px;
   background: #fff;
-  /*border: 2px solid green;*/
-  /* Center slide text vertically */
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -350,34 +369,6 @@ footer{
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  
 }
 
-
-
-/* 
-.swiper-navBtn{
-  color: #6E93f7;
-  transition: color 0.3s ease;
-}
-.swiper-navBtn:hover{
-  color: #4070F4;
-}
-.swiper-navBtn::before,
-.swiper-navBtn::after{
-  font-size: 35px;
-}
-.swiper-button-next{
-  right: 0;
-}
-.swiper-button-prev{
-  left: 0;
-}
-.swiper-pagination-bullet{
-  background-color: #6E93f7;
-  opacity: 1;
-}
-.swiper-pagination-bullet-active{
-  background-color: #4070F4;
-}
-*/

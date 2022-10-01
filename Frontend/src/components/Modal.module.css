@@ -3,8 +3,7 @@
     background-color: rgba(0,0,0, 0.5);
     height: 200em;
     width: 100vw;
+    z-index: 4;
   }
-.index{
-    z-index: 1000;
-}
+
 

@@ -50,21 +50,16 @@ const DesertForm = ({btnText, dessertList, setDessertList, updateDessert, desert
         if(e.target.name === "name"){
             setName(e.target.value)
         }
-
     }
-   
 
   return (
     <div>
         <form className="form_content" onSubmit={addDessertHandler}>
-            
                 <div>
                     <input required type="text" name="name" placeholder="Sobremesa" className={styles.dessert_input} onChange={onChangeHandler} value={name} />
-                </div>
-                
-                    <input className="btn" type="submit" value={btnText} />
                     
-                    
+                </div>       
+                  <input className="btn" type="submit" value={btnText} />                       
         </form>
         
             

@@ -30,6 +30,18 @@ const NewDesserts = ({ desserts }: Props) => {
         pagination={{
           clickable: true
         }}
+        breakpoints={{
+          400:{
+            slidesPerView : 1
+          },
+          580:{
+            slidesPerView : 2
+          },
+          1024:{
+            slidesPerView:3
+          },
+          
+        }}
         scrollbar={{ draggable: true }}
         navigation={true}
         modules={[Pagination, Navigation]}

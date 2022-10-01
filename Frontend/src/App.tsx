@@ -10,12 +10,14 @@ import {IDesserts} from "./interfaces/Desserts"
 import NewDesserts from './components/NewDesserts';
 import {useAppSelector, useAppDispatch} from "./TypedHooks"
 import {getAllDesserts} from "./Slice/dessertSlice"
-import {FaRegLightbulb} from "react-icons/fa" 
+import {FaRegLightbulb} from "react-icons/fa"
+import{AiOutlineCloseCircle} from "react-icons/ai" 
 
 
 function App() {
 
   const [dessertList, setDessertList] = useState<IDesserts[]>([])
+  const [hasNewDesserts,setHasNewDesserts] = useState<boolean>(false)
   const [desertToUpdate, setDesertToUpdate] = useState<IDesserts | null>(null)
   const dispatch = useAppDispatch()
   const {desserts,success,error,loading} = useAppSelector((state)=>state.dessert)
@@ -23,7 +25,6 @@ function App() {
   
   let modal = document.querySelector("#modal")
   let newDesserts = document.querySelector("#new_desserts")
-  
   
   const handleDelete = (id:number)=>{
     setDessertList(dessertList.filter((dessert :IDesserts)=>(
@@ -57,11 +58,18 @@ function App() {
   }, [dispatch])
   
   const generateNewDesserts = ()=>{
+    setHasNewDesserts(true)
     newDesserts!.classList.remove("hide")
+    
+  }
+  const closeNewDesserts = ()=>{
+    setHasNewDesserts(false)
+    newDesserts!.classList.add("hide")
   }
   const handleClose = ()=>{
     modal?.classList.add("hide")
   }
+  
  
   return (
     <div className="app">
@@ -70,8 +78,11 @@ function App() {
       <Header/>
       <div  className="app_form ">
         <div id="" className="app_form_content ">
-          
+        {!hasNewDesserts?
         <button onClick={()=> generateNewDesserts()} className=" btn_idea "> <FaRegLightbulb/></button>
+        :  
+        <button onClick={()=> closeNewDesserts()} className=" btn_idea "> <AiOutlineCloseCircle/></button>
+      }
           <h1 className="app_form_title">Ideia para sobremesa?</h1>
          <DessertForm btnText = "Adicionar" dessertList={dessertList} setDessertList={setDessertList}  desertToUpdate={desertToUpdate} updateDessert={updateDessert} /> 
         </div>
