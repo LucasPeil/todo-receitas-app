@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice, SliceCaseReducers } from "@reduxjs/toolkit";
-import type { RootState } from '../store'
+import { createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import getDessertsService from "../Service/dessertService";
 import {INewDesserts} from "../interfaces/Desserts"

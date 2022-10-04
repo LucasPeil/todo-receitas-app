@@ -5,7 +5,6 @@ import DessertList from './components/DessertList'
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Modal from './components/Modal';
-import styles from "./App.module.css"
 import {IDesserts} from "./interfaces/Desserts"
 import NewDesserts from './components/NewDesserts';
 import {useAppSelector, useAppDispatch} from "./TypedHooks"
@@ -38,9 +37,6 @@ function App() {
   const handleEdit = ( dessert: IDesserts)=>{ 
     setDesertToUpdate(dessert)
     modal?.classList.remove("hide")
-
-    
-    // 3 - Efetivamente editar a lista (setDessertList)
   }
 
   const updateDessert = (id:number, name:string) =>{
