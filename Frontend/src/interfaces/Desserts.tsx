@@ -1,4 +1,3 @@
-import { AnchorHTMLAttributes, DetailedHTMLProps, } from "react";
 
 export interface IDesserts{
     id: number;
@@ -13,4 +12,3 @@ export interface INewDesserts{
     howMakeIt:string
 }
 
-/* DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>*/
